@@ -47,4 +47,11 @@ public class Point3D
     {
         return $"{X}, {Y}, {Z}";
     }
+
+    public override bool Equals(object obj)
+    {
+        Point3D p = (Point3D)obj;
+        return X == p.X && Y == p.Y && Z == p.Z;
+    }
+    
 }
