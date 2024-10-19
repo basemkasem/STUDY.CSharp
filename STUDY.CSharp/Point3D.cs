@@ -2,11 +2,11 @@ using System;
 
 namespace STUDY.CSharp;
 
-public class Point3D
+public class Point3D : IComparable<Point3D>, ICloneable
 {
-    public double X { get; private set; }
-    public double Y { get; private set; }
-    public double Z { get; private set; }
+    public double X { get; set; }
+    public double Y { get; set; }
+    public double Z { get; set; }
 
     public Point3D() : this(0, 0, 0)
     {
@@ -55,6 +55,12 @@ public class Point3D
         return $"{X}, {Y}, {Z}";
     }
 
+    public object Clone()
+    {
+        return this;
+    }
+
+
     public override bool Equals(object obj)
     {
         if(ReferenceEquals(this, obj)) return true;
@@ -65,6 +71,28 @@ public class Point3D
         }
         
         return false;
+    }
+
+    public static void Print(Point3D[] points)
+    {
+        for (int i = 0; i < points.Length; i++)
+        {
+            Console.WriteLine($"[{i + 1}] Point {points[i].X}, {points[i].Y}, {points[i].Z}");
+        }
+    }
+
+    public int CompareTo(Point3D? other)
+    {
+        if (other is null) return 1;
+        if (X.CompareTo(other.X) == 0)
+        {
+            if (Y.CompareTo(other.Y) == 0)
+            {
+                return Z.CompareTo(other.Z);
+            }
+            return Y.CompareTo(other.Y);
+        }
+        return X.CompareTo(other.X);
     }
     
 }
