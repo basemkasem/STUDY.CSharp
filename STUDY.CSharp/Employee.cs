@@ -31,13 +31,18 @@ namespace STUDY.CSharp;
 //     }
 // }
 
-class Employee : Person
+class Employee : Person , IPayable
 {
     public string? Nid { get; set; }
-    public double Salary { get; set; }
+    public double Salary { get; private set; }
     
     public override string ToString()
     {
         return $"Nid: {Nid}, Salary: {Salary}";
+    }
+
+    public void ShowPayment()
+    {
+        Console.WriteLine($"Salary: {Salary}");
     }
 }
