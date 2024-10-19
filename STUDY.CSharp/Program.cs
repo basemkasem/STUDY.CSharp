@@ -14,8 +14,17 @@ using STUDY.CSharp;
 //
 // Point3D.Print(points);
 
-Trainee t1 = new Trainee("12345678", 5, 1000);
-Trainee t2 = new Trainee("12345678", 5, 1000);
+// Trainee t1 = new Trainee("12345678", 5, 1000);
+// Trainee t2 = new Trainee("12345678", 5, 1000);
+//
+// Console.WriteLine(t1.Compare(t1, t2));
 
-Console.WriteLine(t1.Compare(t1, t2));
-
+PhoneBook phoneBook = new PhoneBook();
+phoneBook[123] = "Ali";
+Console.WriteLine(phoneBook[123]);
+phoneBook["Hosam"] = 456;
+Console.WriteLine(phoneBook[456]);
+int phone = phoneBook["Ali"];
+Console.WriteLine($"phone: {phone}");
+Console.WriteLine();
+phoneBook.Display();
